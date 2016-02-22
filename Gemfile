@@ -16,3 +16,13 @@ source "http://rubygems.org"
 
 # Show method sources
   gem "method_source"
+
+# data
+  gem "sqlite3"
+  gem "activerecord"
+
+# language helpers
+  gem "activesupport"
+
+# debugger
+  gem "byebug"
