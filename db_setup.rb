@@ -23,10 +23,12 @@ class Migrations < ActiveRecord::Migration
     end
   end
   def down
-    loop { (`cp #{DATABASE_FILENAME} #{DATABASE_FILENAME}-#{SecureRandom.urlsafe_base64}.backup`; exit) rescue next }
+    puts "backing up db" if File.file?(DATABASE_FILENAME)
+    loop { (`cp #{DATABASE_FILENAME} #{DATABASE_FILENAME}-#{SecureRandom.urlsafe_base64}.backup`; break) rescue next }
     puts "backed up database".red_on_black
     sleep 0.5
     drop_table :links
+    puts "dropped links table"
   end
 end # Migrations
 

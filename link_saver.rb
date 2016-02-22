@@ -2,8 +2,10 @@
 require_relative("./db_setup.rb")
 
 class LinkSaver
+  # make sure this method accepts a hash argument, which is passed from OptionParser
   def initialize(options={})
-    # make sure this method accepts a hash argument, which is passed from OptionParser
+    # test db connection
+    Link.count rescue migrate  
     puts "try 'help'".yellow
   end
 
@@ -12,4 +14,10 @@ class LinkSaver
     puts "hello  #{msg}"
     return :return_value_of_hello_world
   end
+
+  def migrate
+    puts "migrating".green_on_black
+    Migrations.migrate(:up)
+  end
+
 end
