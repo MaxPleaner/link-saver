@@ -18,7 +18,7 @@ require "awesome_print"
 #---------------------------------------------------------------------------------------------------------------------
 # define the source for commands
 #---------------------------------------------------------------------------------------------------------------------
-# use lib/commands.rb as the source for the COMMANDS_CLASS constant
+# define the source for custom CLI methods
 COMMANDS_FILE = "./link_saver.rb"
 require_relative COMMANDS_FILE
 # Set a variable equaling the class which is loaded from COMMANDS_FILE
